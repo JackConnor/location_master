@@ -1,11 +1,19 @@
-var express = require('express'); // Get the library
-var bodyParser = require('body-parser'); // Lets use body parser
-var mongoose = require('mongoose'); // Get the mongoose library
+var express     = require('express'); // Get the library
+var bodyParser  = require('body-parser'); // Lets use body parser
+var mongoose    = require('mongoose'); // Get the mongoose library
 
-var app = express(); // Create app object
-var server = require('http').Server(app);
-var socketio = require('socket.io');
-var io = require('socket.io')(server);
+var app         = express(); // Create app object
+var server      = require('http').Server(app);
+var socketio    = require('socket.io');
+var io          = require('socket.io')(server);
+
+
+var passport    = require('passport');
+var flash       = require('connect-flash');
+var morgan      = require('morgan');
+var cookieParser = require('cookie-parser');
+var session      = require('express-session');
+var path         = require('path');
 // Let's define a schema to be used with the Book model
 
 app.set('port', process.env.PORT || 5000);
