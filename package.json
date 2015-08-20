@@ -1,0 +1,22 @@
+{
+  "name": "my_bookstore",
+  "version": "1.0.0",
+  "description": "an app to track a bookstore",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "awesome"
+  ],
+  "author": "jimmyboom",
+  "license": "MIT",
+  "dependencies": {
+    "body-parser": "^1.13.3",
+    "express": "^4.13.3",
+    "mongoose": "^4.1.1"
+  }
+  "engines": {
+    "node":"0.12.2"
+  }
+}

@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.js"></script>
+    <title>Bookstore</title>
+  </head>
+  <body>
+    <h1>Good morning welcome to the Bookstore</h1>
+
+    <form id="book-form" class="my-form">
+      <input type="text" name="name" placeholder="new book here...">
+      <input type="text" name="age" placeholder="your age here...">
+      <input type="submit">
+    </form>
+
+    <ul class="results"></ul>
+  </body>
+  <script type="text/javascript">
+    var ulResults = $('.results');
+    var bookForm = $('#book-form');
+
+    bookForm.on('submit', function(evt){
+      evt.preventDefault();
+      console.log(evt.target.age.value);
+
+      $.ajax({
+        method: 'post'
+        , url: 'http://localhost:3000/books'
+        , data : JSON.stringify({name: evt.target.name.value})
+        , contentType: 'application/json; charset=UTF-8'
+        , dataType   : 'json'
+        , success: function(dataThatCameback){
+          console.log(dataThatCameback);
+          ulResults.append('<li>' + dataThatCameback.name + '</li>');
+        }
+      });
+
+    });
+
+    $.ajax({
+      method: 'get'
+      , url : 'http://localhost:3000/books'
+      , success : function(dataThatCameback){
+        console.log(dataThatCameback);
+        dataThatCameback.forEach(function(el){
+          ulResults.append(
+            '<li>' + el.name
+             +  '<button id="' + el._id + '">' + "x" + '</button>'
+             + '</li>'
+          );
+
+          $('#' + el._id).on('click', function(evt){
+            console.log(evt.target.id);
+            $.ajax({
+              method: 'delete'
+              , url : 'http://localhost:3000/books/' + evt.target.id
+              , success : function(dataThatCameback){
+                // Removed it succesfully if dataThatCameback is {message: "succesfully deleted"}
+                console.log(dataThatCameback);
+                // Remove locally
+                $('#' + evt.target.id).parent().hide('slow');
+              }
+            });
+
+          });
+
+        });
+      }
+    });
+
+
+  </script>
+</html>
