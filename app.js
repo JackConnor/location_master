@@ -11,9 +11,9 @@ var io          = require('socket.io')(server);
 var passport    = require('passport');
 var flash       = require('connect-flash');
 var morgan      = require('morgan');
-var cookieParser = require('cookie-parser');
-var session      = require('express-session');
-var path         = require('path');
+// var cookieParser = require('cookie-parser');
+// var session      = require('express-session');
+// var path         = require('path');
 // Let's define a schema to be used with the Book model
 
 app.set('port', process.env.PORT || 5000);
