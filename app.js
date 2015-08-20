@@ -127,7 +127,7 @@ app.use(bodyParser.json());
 //   });
 // });
 
-require('../easyAuth/models/routes.js')(app, passport); // load our routes and pass in our app and fully configured passport
+require('../models/routes.js')(app, passport); // load our routes and pass in our app and fully configured passport
 
 app.listen(app.get('port'), function(){
   console.log("Server started, lets get down");
