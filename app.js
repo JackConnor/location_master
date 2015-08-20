@@ -12,8 +12,12 @@ var bookSchema = mongoose.Schema({
 // Let's create a Book model using the abovecreated bookSchema
 var Book = mongoose.model('Book', bookSchema);
 
-// Lets setup a connection to mongo from mongoose
-mongoose.connect('mongodb://localhost/bookstore');
+var myMongo = 'mongodb://ceebulo:qwerty@ds031613.mongolab.com:31613/project3_jjc'
+
+mongoose.connect(myMongo);
+
+console.log(myMongo);
+
 // create a mongoose connection object to attach event listeners
 var db = mongoose.connection;
 // let's attach an event listener for connection errors
