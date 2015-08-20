@@ -18,6 +18,8 @@ mongoose.connect(myMongo);
 
 console.log(myMongo);
 
+var mongodburi = process.env.MONGODBURI;
+
 // create a mongoose connection object to attach event listeners
 var db = mongoose.connection;
 // let's attach an event listener for connection errors
