@@ -3,6 +3,9 @@ var bodyParser = require('body-parser'); // Lets use body parser
 var mongoose = require('mongoose'); // Get the mongoose library
 
 var app = express(); // Create app object
+var server = require('http').Server(app);
+var socketio = require('socket.io');
+var io = require('socket.io')(server);
 // Let's define a schema to be used with the Book model
 
 app.set('port', process.env.PORT || 5000);
