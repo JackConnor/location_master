@@ -19,6 +19,16 @@ module.exports = function(app, passport) {
         res.render('login.ejs', { message: req.flash('loginMessage') });
     });
 
+    app.get('/users', function(req, res){
+      User.find({}, function(err, users){
+        if(err) {
+          console.log(err)
+        }
+        response.json(users);
+      })
+    })
+
+
     // process the login form
     // app.post('/login', do all our passport stuff here);
     app.post('/login', passport.authenticate('local-login', {
@@ -89,6 +99,9 @@ module.exports = function(app, passport) {
             successRedirect : '/profile',
             failureRedirect : '/'
         }));
+    app.get('/test', function(req, res){
+      res.render('test.ejs');
+    })
 };
 
 
