@@ -163,6 +163,6 @@ io.on('connect', function(socket){
 
 require('./models/routes.js')(app, passport); // load our routes and pass in our app and fully configured passport
 
-app.listen(app.get('port'), function(){
+server.listen(app.get('port'), function(){
   console.log("Server started, lets get down");
 });
