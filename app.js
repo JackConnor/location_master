@@ -127,6 +127,40 @@ app.use(bodyParser.json());
 //   });
 // });
 
+io.on('connect', function(socket){
+  console.log('connected');
+  socket.on('new-user', function(data){
+    console.log("new user with name of "+data.name)
+    io.emit('add-user', data)
+  })
+
+  socket.on('sending-location', function(data){
+    console.log(data);
+    io.to(data.receiver).emit('private-location', data);
+  })
+
+  socket.on('testing', function(data){
+    console.log(data);
+    io.emit('testing', data);
+  })
+
+  socket.on('arrow-test', function(data){
+    io.emit('arrow-test', data)
+    })
+
+//begin new attempt at user tracking, wednesday
+//////////////////////////////////////////////
+  socket.on('arrowSocket', function(data){
+    console.log(data);
+    io.emit('arrowSocket', data);
+  })
+
+
+////end new attempt at user tracking
+////////////////////////////////////
+
+  })
+
 require('./models/routes.js')(app, passport); // load our routes and pass in our app and fully configured passport
 
 app.listen(app.get('port'), function(){
