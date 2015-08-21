@@ -130,7 +130,7 @@ module.exports = function(passport) {
            clientID        : configAuth.facebookAuth.clientID,
            clientSecret    : configAuth.facebookAuth.clientSecret,
            callbackURL     : configAuth.facebookAuth.callbackURL,
-           profileFields   : ['id', 'displayName', 'photos', 'email', 'birthday', 'location', 'friends','bio','education']
+           profileFields   : ['id', 'displayName', 'photos', 'picture.type(large)', 'email', 'birthday', 'location', 'friends','bio','education']
        },
 
        // facebook will send back the token and profile
