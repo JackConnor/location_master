@@ -55,7 +55,7 @@
       console.log(name);
       console.log(socketid);
       socket.emit('fb', {name: name, socket: socketid});
-    }
+    })
     socket.on('fb', function(data){
       console.log(data);
     })
