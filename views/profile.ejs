@@ -37,9 +37,10 @@
       var socket = io();
       window.onload = function(){
         var name = "<%=user.facebook.name%>";
+        var socketid = socket.id;
         console.log(name);
-        console.log(socket);
-        socket.emit('fb', {name: name, socket: socket.id});
+        console.log(socketid);
+        socket.emit('fb', {name: name, socket: socketid});
       }
       socket.on('fb', function(data){
         console.log(data);
