@@ -47,11 +47,24 @@
 // })
 // ///start ajax calls
 var socket = io();
+
 $('#testbtn').on('click', function(){
   console.log('loaded');
   console.log(socket.id);
   socket.emit('fb', socket.id);
 })
+socket.on('fb', function(data){
+  console.log(data);
+})
+
+var socketid = socket.id;
+window.onload = function(){
+  // var name = "<%=user.facebook.name%>";
+  // console.log(name);
+
+  console.log(socketid);
+  socket.emit('fb', {socket: socketid});
+}
 socket.on('fb', function(data){
   console.log(data);
 })

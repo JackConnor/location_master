@@ -34,18 +34,17 @@
 <body>
   <div class="container">
     <script type="text/javascript">
-      var socket = io();
-      window.onload = function(){
-        var name = "<%=user.facebook.name%>";
-        var socketid = socket.id;
-        console.log(name);
-        console.log(socketid);
-        socket.emit('fb', {name: name, socket: socketid});
-      }
-      socket.on('fb', function(data){
-        console.log(data);
-      })
+    var socketid = socket.id;
+    window.onload = function(){
+      var name = "<%=user.facebook.name%>";
+      console.log(name);
 
+      console.log(socketid);
+      socket.emit('fb', {name: name, socket: socketid});
+    }
+    socket.on('fb', function(data){
+      console.log(data);
+    })
     </script>
 
     <div class="page-header text-center">
