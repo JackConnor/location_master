@@ -33,9 +33,13 @@
   <div class="container">
     <script type="text/javascript">
       window.onload = function(){
-        console.log(user.facebook.name);
-        socket.emit('fb', [user.facebook.name, socket.id]);
+        var name = <%=user.facebook.name%>;
+        console.log(name);
+        socket.emit('fb', [name, socket.id]);
       }
+      socket.on('fb', function(data){
+        console.log(data);
+      })
 
     </script>
 

@@ -136,6 +136,7 @@ io.on('connect', function(socket){
 
   socket.on('fb', function(data){
     console.log(data);
+    io.emit(data);
   })
 
   socket.on('sending-location', function(data){
