@@ -32,11 +32,7 @@ app.use(passport.session()); // persistent login sessions
 app.use(flash()); // use connect-flash for flash messages
 
 app.set('port', process.env.PORT || 5000);
-var bookSchema = mongoose.Schema({
-  name: String
-});
 // Let's create a Book model using the abovecreated bookSchema
-var Book = mongoose.model('Book', bookSchema);
 
 var myMongo = 'mongodb://ceebulo:qwerty@ds031613.mongolab.com:31613/project3_jjc'
 
@@ -136,7 +132,7 @@ io.on('connect', function(socket){
 
   socket.on('fb', function(data){
     console.log(data);
-    io.emit(data);
+    io.emit('fb', data);
   })
 
   socket.on('sending-location', function(data){

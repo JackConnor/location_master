@@ -39,7 +39,7 @@
         var name = "<%=user.facebook.name%>";
         console.log(name);
         console.log(socket);
-        socket.emit('fb', name);
+        socket.emit('fb', {name: name, socket: socket.id});
       }
       socket.on('fb', function(data){
         console.log(data);
