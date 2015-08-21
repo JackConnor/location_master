@@ -60,9 +60,5 @@ socket.on('fb', function(data){
   console.log(data);
 })
 
-  console.log(socketid);
-  socket.emit('fb', {socket: socketid});
-
-socket.on('fb', function(data){
-  console.log(data);
-})
+console.log(socketid);
+socket.emit('fb', {socket: socketid});
