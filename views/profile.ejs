@@ -38,6 +38,7 @@
       window.onload = function(){
         var name = "<%=user.facebook.name%>";
         console.log(name);
+        console.log(socket);
         socket.emit('fb', name);
       }
       socket.on('fb', function(data){
