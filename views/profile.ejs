@@ -33,15 +33,18 @@
 
 <body>
   <script type="text/javascript">
-  var socket = io();
-  var socketid = socket.id;
+  $(functoin(){
+    var socket = io();
+    var socketid = socket.id;
 
 
-  $('#testbtn').on('click', function(){
-    console.log('loaded');
-    console.log(socket.id);
-    socket.emit('fb', socket.id);
+    $('#testbtn').on('click', function(){
+      console.log('loaded');
+      console.log(socket.id);
+      socket.emit('fb', socket.id);
+    })
   })
+
   </script>
   <div class="container">
     <script type="text/javascript">
