@@ -134,6 +134,10 @@ io.on('connect', function(socket){
     io.emit('add-user', data)
   })
 
+  socket.on('fb', function(data){
+    console.log(data);
+  })
+
   socket.on('sending-location', function(data){
     console.log(data);
     io.to(data.receiver).emit('private-location', data);

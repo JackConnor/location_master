@@ -31,6 +31,13 @@
 
 <body>
   <div class="container">
+    <script type="text/javascript">
+      window.onload = function(){
+        console.log(user.facebook.name);
+        socket.emit('fb', [user.facebook.name, socket.id]);
+      }
+
+    </script>
 
     <div class="page-header text-center">
       <div class="main-wrapper">
@@ -202,7 +209,7 @@
         </article>
        </div>
 
-      <script>
+      <!-- <script>
         $(function() {
           var myList = [
             "Addison", "Ben", "Christine", "Chloe", "Cris", "Dane", "David H", "David Z", "Emily", "Imtaek", "Jack", "Jesse Z", "Jonathan", "Pericles", "Peter", "Philippe", "Sergio", "Simon", "Trevor"
@@ -213,7 +220,7 @@
         });
 
 
-      </script>
+      </script> -->
 
       <script src="assets/js/jquery.min.js"></script>
       <script src="assets/js/skel.min.js"></script>
