@@ -32,13 +32,25 @@
 </head>
 
 <body>
+  <script type="text/javascript">
+  var socket = io();
+  var socketid = socket.id;
+
+
+  $('#testbtn').on('click', function(){
+    console.log('loaded');
+    console.log(socket.id);
+    socket.emit('fb', socket.id);
+  })
+  </script>
   <div class="container">
     <script type="text/javascript">
+    var socket = io();
     var socketid = socket.id;
-    window.onload = function(){
+    $('findFriends').on('click', function(){
       var name = "<%=user.facebook.name%>";
       console.log(name);
-
+      var
       console.log(socketid);
       socket.emit('fb', {name: name, socket: socketid});
     }
@@ -53,7 +65,7 @@
           <i class="material-icons">settings</i> -->
         <!-- <i class="material-icons">refresh</i> -->
 
-        <a id="findFriends" href="#friends"><i class="material-icons">search</i></a>
+        <a id="findFriends" href="#friends"><i class="material-icons" id="findFriends">search</i></a>
         <a href="/navigation"><i class="material-icons">explore</i></a>
         <a href="#friend-requests"></a>  <i class="material-icons">add</i>
         <h2>Your Profile</h2>
