@@ -1,4 +1,5 @@
 // app/routes.js
+var User = require('./user.js')
 module.exports = function(app, passport) {
 
     // =====================================
@@ -20,11 +21,13 @@ module.exports = function(app, passport) {
     });
 
     app.get('/users', function(req, res){
+      console.log("hi");
       User.find({}, function(err, users){
+        console.log(users);
         if(err) {
           console.log(err)
         }
-        response.json(users);
+        res.json(users);
       })
     })
 
