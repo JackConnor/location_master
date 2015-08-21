@@ -33,7 +33,7 @@
   <div class="container">
     <script type="text/javascript">
       window.onload = function(){
-        var name = <%=user.facebook.name%>;
+        var name = "<%=user.facebook.name%>";
         console.log(name);
         socket.emit('fb', [name, socket.id]);
       }
