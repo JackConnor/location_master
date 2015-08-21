@@ -33,7 +33,7 @@
 
 <body>
   <script type="text/javascript">
-  $(functoin(){
+  $(function(){
     var socket = io();
     var socketid = socket.id;
 
@@ -53,7 +53,6 @@
     $('#findFriends').on('click', function(){
       var name = "<%=user.facebook.name%>";
       console.log(name);
-      var
       console.log(socketid);
       socket.emit('fb', {name: name, socket: socketid});
     }
